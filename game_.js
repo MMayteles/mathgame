@@ -1,9 +1,10 @@
 $(".user_num").prop('disabled', true); //Disable the answer input field
+
 function chooseMode() { //Called onLoad of the page
 	$('.number').text("00");
 	$("#overlay").fadeIn();
 	$('.gameMode').fadeIn('slow');
-}
+}//ChooseMode()
 
 $( ".double" ).click(function() {
 		startGame("double");
@@ -23,7 +24,6 @@ $(".answerForm").submit(function(){
 
 
 function startGame(mode) {
-	//event.preventDefault();
 	$('.countdown').hide();
 	$('.gameMode').fadeOut('fast');
 	$("#countdownBox").fadeIn();
@@ -41,13 +41,11 @@ function startGame(mode) {
 		countDown("triple");
 	});
 	}
-} //StratTimer()
+} //StratGame()
 
 
 function countDown(mode) {
-	//alert("CountDown < holding at. mode is " + mode)
 	event.preventDefault();
-	//alert("CountDown function initiated...");
 	$('.start_btn_holder').fadeOut('fast');
 
 		setTimeout(function(){
@@ -149,7 +147,6 @@ function initiateGameplay(mode) {
 } //initiateGameplay()
 
 function yourOut() {
-	//$('.yourout').fadeIn('slow');
 	$('.yourout').animate({"top":"50%"}, 200);
 	$('.yourout').animate({"top":"30%"}, 200);
 	$('.yourout').animate({"top":"60%"}, 200);
@@ -162,4 +159,4 @@ function yourOut() {
 		chooseMode();
 	}, 2000);
 	
-}
+}//YourOut()

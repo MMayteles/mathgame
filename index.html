@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Math | The Game</title>
+<link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body onload="chooseMode();">
+<div class="number width_setter">
+	00
+</div>
+
+<div class="yourout">3 Strikes and... YOUR OUT!!!</div>
+
+<form class="answerForm" onsubmit="">
+<input type="text" class="user_num width_setter" placeholder="Answer:">
+</form>
+<div class="score width_setter">Score: 0</div>
+
+
+<div id="overlay"></div>
+
+<div class="gameMode">
+	<div class="choose_mode">Choose Mode:</div>
+	<div class="mode double">Double</div>
+	<div class="mode triple">Triple</div>
+</div>
+
+<div id="countdownBox">
+	<div class="instructions">
+  		<b>Instructions:</b><br>Type the number that is equal to <b class="mode_txt"></b> the number in the blue box, 	then hit [ENTER].
+ 	</div>
+	<div class="countdown"></div>
+
+  <form class="start_btn_holder" onsubmit="">
+  	<button class="start_game_btn">Ready?</button>
+  </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="game_.js"></script>
+</body>

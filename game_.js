@@ -14,9 +14,6 @@ $( ".triple" ).click(function() {
 		startGame("triple");
 		mode = "triple";
 });
-function buttonSubmit() {
-	event.preventDefault();
-}
 $(".answerForm").submit(function(){
 	//alert("Form field submitted!!!!!");
 	initiateGameplay(mode)

@@ -1,6 +1,6 @@
 $(".user_num").prop('disabled', true); //Disable the answer input field
 
-function chooseMode() { //Called onLoad of the page
+function chooseMode() { //Function is called onLoad of the page
 	$('.number').text("00");
 	$("#overlay").fadeIn();
 	$('.gameMode').fadeIn('slow');
@@ -15,7 +15,6 @@ $( ".triple" ).click(function() {
 		mode = "triple";
 });
 $(".answerForm").submit(function(){
-	//alert("Form field submitted!!!!!");
 	initiateGameplay(mode)
 });
 
@@ -56,13 +55,11 @@ function countDown(mode) {
 	$('.countdown').text("3");
 	var interval = setInterval(function() {
     counter--;
-    if (counter == 3) {
-		$('.countdown').text("2");
-	} else if (counter == 2) {
-		$('.countdown').text("1");
 
-	} else if (counter == 1) {
-		$('.countdown').text("GO!");
+	if (counter == 1) {
+	$(".countdown").fadeOut(10,function() {
+     $('.countdown').text("GO!").fadeIn(8);
+	});
 		$("#overlay").fadeOut('slow');
 		$("#countdownBox").fadeOut('slow');
 		$(".user_num").prop('disabled', false);
@@ -71,6 +68,10 @@ function countDown(mode) {
 	} else if (counter == 0) {
 		initiateGameplay(mode);
 		clearInterval(interval);
+	} else {
+		$(".countdown").fadeOut(function() {
+    		$('.countdown').html(counter - 1).fadeIn();
+		});
 	}
 	}, 1000);
 } //CountDown()
@@ -107,39 +108,22 @@ function updatePoints(answer) {
 }//updatePoints()
 
 function initiateGameplay(mode) {
+
 	event.preventDefault();
+	
+	var supercalifagulastic = (mode === 'double') ? 2 : 3 ;
 
-	if (mode === "double") {
-		chosen_num = $('.user_num').val();
-		if (chosen_num >= 0) {
-			if (chosen_num == (ranNumber * 2)) {
-				updatePoints(1);
-				resetNumber();
-				$('.user_num').val("");
-				} else {
-				updatePoints(0);
-				$('.user_num').val("");
-				resetNumber();
-				}
+	chosen_num = $('.user_num').val();
+	if (chosen_num >= 0) {
+		if (chosen_num == (ranNumber * supercalifagulastic)) {
+			updatePoints(1);
+			resetNumber();
+			$('.user_num').val("");
 		} else {
-			//User did not enter a number, so do nothing
-		} 
-
-	} else if (mode === "triple") {
-		chosen_num = $('.user_num').val();
-		if (chosen_num >= 0) {
-			if (chosen_num == (ranNumber * 3)) {
-				updatePoints(1);
-				resetNumber();
-				$('.user_num').val("");
-				} else {
-				updatePoints(0);
-				$('.user_num').val("");
-				resetNumber();
-				}
-		} else {
-			//User did not enter a number, so do nothing
-		} 
+			updatePoints(0);
+			$('.user_num').val("");
+			resetNumber();
+		}
 	}
 } //initiateGameplay()
 

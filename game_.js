@@ -80,7 +80,7 @@ function resetNumber() {
 	ranNumber = Math.floor((Math.random() * 100) + 2);
 	$('.number').text(ranNumber);
 } //resetNumber()
-
+//what is this?
 points = 0;
 x_strike_out = 0;
 function updatePoints(answer) {

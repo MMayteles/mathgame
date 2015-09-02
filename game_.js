@@ -79,7 +79,7 @@ function countDown(mode) {
 function resetNumber() {
 	ranNumber = Math.floor((Math.random() * 100) + 2);
 	$('.number').text(ranNumber);
-}
+} //resetNumber()
 
 points = 0;
 x_strike_out = 0;
@@ -93,6 +93,10 @@ function updatePoints(answer) {
 		}
 	} else {
 		x_strike_out++
+		$('.wrong').fadeIn( 'fast' );
+		setTimeout(function() {
+			$('.wrong').fadeOut( 'fast' );
+		}, 400);
 		if (x_strike_out < 3) {
 			if (points > 0) {
 				points--
@@ -110,7 +114,7 @@ function updatePoints(answer) {
 function initiateGameplay(mode) {
 
 	event.preventDefault();
-	
+
 	var supercalifagulastic = (mode === 'double') ? 2 : 3 ;
 
 	chosen_num = $('.user_num').val();

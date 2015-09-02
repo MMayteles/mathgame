@@ -11,9 +11,11 @@ body {
 	font-size: 100px;
 	padding: 8px 0px;
 	border-radius: 3px;
-	margin: 50px auto 10px auto;
+	margin: 50px auto 35px auto;
 	text-align: center;
 	font-family: sans-serif;
+	position: relative;
+	top:20px !important;
 }
 .user_num {
 	outline:0;
@@ -25,6 +27,21 @@ body {
 	display: block;
 	text-align: center;
 }
+.wrong {
+	background: red;
+	height: 40px;
+	font-size: 35px;
+	margin: 10px auto 0 -175px;
+	line-height: 40px;
+	border-radius: 4px;
+	position:absolute;
+	left: 50%;
+	top: 5px;
+	display:none;
+	width: 500px;
+	text-align: center;
+}
+
 ::-webkit-input-placeholder {
    text-align: center;
 }

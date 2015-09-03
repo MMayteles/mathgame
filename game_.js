@@ -30,13 +30,14 @@ function startGame(mode) {
 
 	if (mode === "double") {
 		$(".start_game_btn").click(function() {
-		countDown("double");
-	});
+			countDown("double");
+		});
 	} else if (mode === "triple") {
 		$(".start_game_btn").click(function() {
-		countDown("triple");
-	});
+			countDown("triple");
+		});
 	}
+
 } //StratGame()
 
 
@@ -44,22 +45,22 @@ function countDown(mode) {
 	event.preventDefault();
 	$('.start_btn_holder').fadeOut('fast');
 
-		setTimeout(function(){
-		    $('.instructions').hide();
-			$('.countdown').fadeIn();
-			$("#overlay").fadeIn('slow');
-			$("#countdownBox").fadeIn('slow');
-		}, 300);//setTimeout()
+	setTimeout(function(){
+	    $('.instructions').hide();
+		$('.countdown').fadeIn();
+		$("#overlay").fadeIn('slow');
+		$("#countdownBox").fadeIn('slow');
+	}, 300); //setTimeout()
 
 	var counter = 4;
 	$('.countdown').text("3");
 	var interval = setInterval(function() {
-    counter--;
+	counter--;	
 
 	if (counter == 1) {
-	$(".countdown").fadeOut(10,function() {
-     $('.countdown').text("GO!").fadeIn(8);
-	});
+		$(".countdown").fadeOut(10,function() {
+    		$('.countdown').text("GO!").fadeIn(8);
+		});
 		$("#overlay").fadeOut('slow');
 		$("#countdownBox").fadeOut('slow');
 		$(".user_num").prop('disabled', false);
@@ -68,7 +69,8 @@ function countDown(mode) {
 	} else if (counter == 0) {
 		initiateGameplay(mode);
 		clearInterval(interval);
-	} else {
+		
+		} else {
 		$(".countdown").fadeOut(function() {
     		$('.countdown').html(counter - 1).fadeIn();
 		});
@@ -80,9 +82,11 @@ function resetNumber() {
 	ranNumber = Math.floor((Math.random() * 100) + 2);
 	$('.number').text(ranNumber);
 } //resetNumber()
-//what is this?
+
 points = 0;
+
 x_strike_out = 0;
+
 function updatePoints(answer) {
 	if (answer == 1) {
 		x_strike_out = 0;
